@@ -91,7 +91,7 @@ class MealTableViewController: UITableViewController {
 
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             meals.remove(at: indexPath.row)
@@ -158,7 +158,7 @@ class MealTableViewController: UITableViewController {
                 // Add a meal.
                 let newIndexPath = IndexPath(row: meals.count, section: 0)
                 meals.append(meal)
-                tableView.insertRows(at: [newIndexPath], with: UITableViewRowAnimation.bottom)
+                tableView.insertRows(at: [newIndexPath], with: UITableView.RowAnimation.bottom)
             }
             
             // Save the meals

@@ -32,13 +32,13 @@ class RatingControl: UIView {
             
             let button = UIButton()
             
-            button.setImage(emptyStarImage, for: UIControlState())
-            button.setImage(filledStarImage, for: UIControlState.selected)
-            button.setImage(filledStarImage, for: [UIControlState.highlighted, UIControlState.selected])
+            button.setImage(emptyStarImage, for: UIControl.State())
+            button.setImage(filledStarImage, for: UIControl.State.selected)
+            button.setImage(filledStarImage, for: [UIControl.State.highlighted, UIControl.State.selected])
             
             button.adjustsImageWhenHighlighted = false
             
-            button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(_:)) , for: UIControlEvents.touchDown)
+            button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(_:)) , for: UIControl.Event.touchDown)
             
             ratingButtons += [button]
             
@@ -72,7 +72,7 @@ class RatingControl: UIView {
     // MARK: Button Action
     @objc func ratingButtonTapped(_ button: UIButton) {
         
-        rating = ratingButtons.index(of: button)! + 1
+        rating = ratingButtons.firstIndex(of: button)! + 1
         updateButtonSelectionStates()
         
     }
